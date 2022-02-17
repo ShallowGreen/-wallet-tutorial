@@ -11,6 +11,7 @@ import {
   Airdrop,
   Question,
 } from "../styles/StyledComponents.styles";
+import { Cluster } from "@solana/web3.js";
 
 const { Paragraph } = Typography;
 
@@ -37,7 +38,7 @@ const Wallet: NextPage = () => {
 
   const airdrop = async () => {
     setAirdropLoading(true);
-    const updatedBalance = await handleAirdrop(network, account);
+    const updatedBalance = await handleAirdrop(network as Cluster, account);
     if (typeof updatedBalance === "number") {
       setBalance(updatedBalance);
     }
